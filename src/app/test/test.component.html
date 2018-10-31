@@ -1,0 +1,36 @@
+<h2>ROS Rankings: updated 10/30/2018</h2>
+
+<div>
+  <label>Add a player to your team:</label>
+    <input #newPlayer
+    (keyup.enter)="addPlayer(newPlayer.value)"
+    (blur)="addPlayer(newPlayer.value); newPlayer.value='' ">
+
+  <button (click)="addPlayer(newPlayer.value)">Add</button>
+</div>
+
+<table>
+    <tr>
+      <td>Name</td>
+      <td>Rank</td>
+    </tr>
+    <tr *ngFor="let player of myTeam">
+      <td>{{ player }}</td>
+      <td>{{ this.findPlayer(player)["Rank"] }}</td>
+    </tr>
+  </table>
+
+<table>
+  <tr>
+    <td>Rank</td>
+    <td>Name</td>
+    <td>Team</td>
+    <td>Pos Rank</td>
+  </tr>
+  <tr *ngFor="let row of fileData">
+    <td>{{ row["Rank"] }}</td>
+    <td>{{ row["Overall"] }}</td>
+    <td>{{ row["Team"] }}</td>
+    <td>{{ row["Pos"] }}</td>
+  </tr>
+</table>
